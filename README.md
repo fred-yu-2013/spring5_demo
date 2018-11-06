@@ -2,6 +2,10 @@
 
 * Intellij Idea ULTIMATE 2018.1
 * 直接打开本工程目录即可
+* [Hello Demo](#hello-demo)
+* [Transaction Hello](#transaction-hello)
+* [DAO Hello](#dao-hello)
+* [JSP Hello](#jsp-hello)
 
 # Hello Demo
 
@@ -130,3 +134,38 @@ tx代表事务，事务概念脱离了数据库操作本身
 txTemplate用来管理事务，不会管理数据库相关的操作
 
 ![Alt text](doc/transaction-arch.jpg?raw=true "Title")
+
+# JSP hello
+
+- 添加pom依赖
+
+```
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-tomcat</artifactId>
+        <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-jasper</artifactId>
+        <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+        <version>1.2</version>
+    </dependency>
+```
+
+- 配置jsp路径，位于application.properties中，并且添加hello.jsp文件
+
+```
+    spring.mvc.view.prefix=/jsp/
+    spring.mvc.view.suffix=.jsp
+```
+
+- 添加controller，HelloJspController
+- 注意，controller需要添加到com.fred.spring.transaction下面
+可能是：**springboot默认扫描规则是,自动扫描启动器类的同包或者其子包的下的注解**
