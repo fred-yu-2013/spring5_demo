@@ -101,6 +101,14 @@
 			<version>1.2</version>
 		</dependency>
 
+        <!--spring tags-->
+
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
