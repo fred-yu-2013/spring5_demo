@@ -7,6 +7,7 @@
 * [DAO Hello](#dao-hello)
 * [JSP Hello](#jsp-hello)
 * [JSP Form Tag Hello](#jsp-form-tag-hello)
+* [Internationalization Hello](#internationalization-hello)
 
 # Hello Demo
 
@@ -170,7 +171,37 @@ txTemplate用来管理事务，不会管理数据库相关的操作
 - 添加controller，HelloJspController
 - 注意，controller需要添加到com.fred.spring.transaction下面
 可能是：**springboot默认扫描规则是,自动扫描启动器类的同包或者其子包的下的注解**
+- 注意：spring-boot-devtools似乎没法让idea做到，修改代码后，App自动重启
 
 # JSP Form Tag Hello
 
 * 具体参见类：JspFormController
+
+# Internationalization Hello
+
+* resources下面添加多语言文件messages*.properties
+* XmlConfiguration中添加3个和locale相关的成员函数
+
+```
+    @Bean
+    public LocaleResolver localeResolver() {
+        SessionLocaleResolver slr = new SessionLocaleResolver();
+        slr.setDefaultLocale(Locale.US);
+        return slr;
+    }
+
+    @Bean
+    public LocaleChangeInterceptor localeChangeInterceptor() {
+        LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
+        lci.setParamName("lang");
+        return lci;
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(localeChangeInterceptor());
+    }
+```
+
+* 添加international.jsp,用来引用多语言字段
+* 注意：不要引用thymeleaf包，这个是和jsp同一级别的模板库，和JSP兼容，需要另行设置

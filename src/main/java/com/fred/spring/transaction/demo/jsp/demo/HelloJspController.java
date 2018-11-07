@@ -17,4 +17,9 @@ public class HelloJspController {
         return "hello";
     }
 
+    @RequestMapping("/international")
+    public String getInternationalPage(Model model, @RequestParam(value="lang", required=false, defaultValue="en") String lang) {
+        return "international";
+    }
+
 }
