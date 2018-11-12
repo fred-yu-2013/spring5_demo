@@ -205,3 +205,16 @@ txTemplate用来管理事务，不会管理数据库相关的操作
 
 * 添加international.jsp,用来引用多语言字段
 * 注意：不要引用thymeleaf包，这个是和jsp同一级别的模板库，和JSP兼容，需要另行设置
+
+# Custom JSP Tag
+
+- 需要引入web.xml文件，在webapp下面建WEB-INF目录即可
+- 创建Tag的描述文件webapp/WEB-INF/custom.tld
+- 创建Tag的处理类及对应的controller
+
+> com.fred.spring.transaction.demo.tag.demo.HelloTag <br/>
+> com.fred.spring.transaction.demo.tag.demo.HelloTagController <br/>
+
+- 创建一个引用tag的jsp
+
+> webapp/jsp/customTag.jsp
