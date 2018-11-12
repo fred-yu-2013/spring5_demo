@@ -8,6 +8,7 @@
 * [JSP Hello](#jsp-hello)
 * [JSP Form Tag Hello](#jsp-form-tag-hello)
 * [Internationalization Hello](#internationalization-hello)
+* [Custom JSP Tag](#custom-jsp-tag)
 
 # Hello Demo
 
