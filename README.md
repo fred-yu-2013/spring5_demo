@@ -10,6 +10,7 @@
 * [Internationalization Hello](#internationalization-hello)
 * [Custom JSP Tag](#custom-jsp-tag )
 * [Custom Namespace in XML Configure File](#custom-namespace-in-xml-configure-file)
+* [Restful Demo](#restful-demo)
 
 # Hello Demo
 
@@ -239,3 +240,17 @@ txTemplate用来管理事务，不会管理数据库相关的操作
 - 添加类CreateServiceNamespaceBeanDefinitionParser，用于解析spring配置文件application-context.xml里面引用的标签
 - 添加类CustomNamespaceHandler，用于注册namespace下的子标签createservice
 
+# Restful Demo
+
+参考教程：https://www.baeldung.com/building-a-restful-web-service-with-spring-and-java-based-configuration <br/>
+https://www.baeldung.com/rest-with-spring-series, 此为系列restful教程
+
+- 直接添加类RestfulFooController，注意添加注解@ResponseBody
+
+```
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    public List<String> findAll() {
+        return Arrays.asList("hello", "word", "from restful");
+    }
+```
