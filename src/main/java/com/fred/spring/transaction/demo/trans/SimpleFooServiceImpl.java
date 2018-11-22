@@ -29,6 +29,7 @@ public class SimpleFooServiceImpl implements FooService {
 
     @Override
     public void insertFoo(Foo foo) {
+        // 让数据库操作运行在事务的上下文中
         transactionTemplate.execute(new TransactionCallbackWithoutResult() {
             // the code in this method executes in a transactional context
             @Override

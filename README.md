@@ -8,7 +8,8 @@
 * [JSP Hello](#jsp-hello)
 * [JSP Form Tag Hello](#jsp-form-tag-hello)
 * [Internationalization Hello](#internationalization-hello)
-* [Custom JSP Tag](#custom-jsp-tag)
+* [Custom JSP Tag](#custom-jsp-tag )
+* [Custom Namespace in XML Configure File](#custom-namespace-in-xml-configure-file)
 
 # Hello Demo
 
@@ -219,3 +220,22 @@ txTemplate用来管理事务，不会管理数据库相关的操作
 - 创建一个引用tag的jsp
 
 > webapp/jsp/customTag.jsp
+
+# Custom Namespace in XML Configure File
+
+参考教程：https://www.codelooru.com/2017/04/spring-custom-namespaces.html
+
+步骤：
+
+- 添加文件resources/spring-custns.xsd, 里面定义了新加的namespace的细节
+- 创建文件resources/META-INF/spring.schemas, 里面添加新的namespace定义，注意右边是namespace描述文件的定义
+
+> http\://www.codelooru.com/custns.xsd=spring-custns.xsd
+
+- application-context.xml里面,添加对新的namespace的引用，该定义用于创建一个service bean和一个dao bean
+
+> <custns:createservice serviceId="myservice-123" daoId="mydao-123" fields="field1,field2,field3"/>
+
+- 添加类CreateServiceNamespaceBeanDefinitionParser，用于解析spring配置文件application-context.xml里面引用的标签
+- 添加类CustomNamespaceHandler，用于注册namespace下的子标签createservice
+
