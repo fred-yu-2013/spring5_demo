@@ -2,6 +2,7 @@
 
 * Intellij Idea ULTIMATE 2018.1
 * 直接打开本工程目录即可
+* [bootstrap_demo](bootstrap_demo/README.md)
 * [Hello Demo](#hello-demo)
 * [Transaction Hello](#transaction-hello)
 * [DAO Hello](#dao-hello)
