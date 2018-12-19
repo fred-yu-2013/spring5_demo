@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <title>Hello, world!</title>
+</head>
+<body>
+<h1>Hello, world!</h1>
+<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" >dialog #1</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">添加账户</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/add_user" method="POST">
+                <div class="modal-body">
+                    <input type="text" style="margin-bottom: 0.3rem" name="new_owner_name" maxlength="32" class="form-control" placeholder="用户名" required autofocus>
+                    <input type="hidden" name="name" value="{{ name if name != None else '' }}" class="form-control">
+                    <input type="hidden" name="phone" value="{{ phone if phone != None else '' }}" class="form-control">
+                    <input type="text" style="margin-bottom: 0.3rem" name="new_name" maxlength="32" class="form-control" placeholder="用户名" required autofocus>
+                    <input type="text" style="margin-bottom: 0.3rem" name="new_real_name" maxlength="32" class="form-control" placeholder="姓名" required autofocus>
+                    <input type="text" style="margin-bottom: 0.3rem" name="new_phone" maxlength="32" class="form-control" placeholder="手机号" required autofocus>
+                    <input type="text" style="margin-bottom: 0.3rem" name="new_max_device_count" maxlength="32" class="form-control" placeholder="设备上限" required autofocus>
+                    <input type="text" style="margin-bottom: 0.3rem" name="new_bank" maxlength="32" class="form-control" placeholder="开户行" required autofocus>
+                    <input type="text" style="margin-bottom: 0.3rem" name="new_bank_account" maxlength="32" class="form-control" placeholder="银行卡号" required autofocus>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    <button id="save" type="submit" class="btn btn-primary" >添加</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--boday start-->
+
+<!--boday end-->
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
